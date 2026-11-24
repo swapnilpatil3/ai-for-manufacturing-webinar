@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Manufacturing Masterclass | Manvian</title>
+  <meta name="description" content="Exclusive Virtual Masterclass: Slashing Unplanned Downtime & Defect Rates with Predictive AI, Computer Vision, and Autonomous Operations.">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+            },
+            cyanAccent: {
+              400: '#22d3ee',
+              500: '#06b6d4',
+            },
+            darkBg: '#090d16',
+            cardBg: '#0f172a',
+            surfaceBg: '#1e293b'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom glow effects and subtle grid background */
+    .hero-glow {
+      background: radial-gradient(circle at 50% 30%, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.08), transparent 70%);
+    }
+    .grid-pattern {
+      background-size: 40px 40px;
+      background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    }
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-card-hover:hover {
+      border-color: rgba(16, 185, 129, 0.4);
+      transform: translateY(-2px);
+      transition: all 0.25s ease;
+    }
+    .text-gradient {
+      background: linear-gradient(135deg, #ffffff 30%, #34d399 70%, #22d3ee 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .badge-pulse {
+      box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+      animation: pulse-ring 2s infinite cubic-bezier(0.66, 0, 0, 1);
+    }
+    @keyframes pulse-ring {
+      to {
+        box-shadow: 0 0 0 10px rgba(16, 185, 129, 0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-darkBg text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white relative overflow-x-hidden">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-emerald-950 via-slate-900 to-cyan-950 border-b border-emerald-500/20 py-2.5 px-4 text-xs sm:text-sm text-center font-medium">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 flex-wrap">
+      <span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 mr-1.5 animate-ping"></span> LIVE MASTERCLASS
+      </span>
+      <span class="text-slate-300">Thursday, December 10, 2026 &bull; 2:00 PM EST (11:00 AM PST)</span>
+      <span class="hidden md:inline text-slate-500">|</span>
+      <span class="text-emerald-400 font-semibold">Free Virtual Pass &bull; Only 120 Seats Left</span>
+      <a href="#register" class="underline hover:text-white font-semibold transition ml-1">Reserve Your Spot &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="sticky top-0 z-40 bg-darkBg/80 backdrop-blur-md border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-cyan-500 p-0.5 flex items-center justify-center shadow-lg shadow-emerald-500/20 group-hover:scale-105 transition">
+          <div class="w-full h-full bg-slate-950 rounded-[10px] flex items-center justify-center">
+            <i data-lucide="cpu" class="w-5 h-5 text-emerald-400"></i>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="text-xl font-bold font-display tracking-tight text-white flex items-center gap-1">
+            MANVIAN <span class="text-xs px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-mono font-normal">AI</span>
+          </span>
+          <span class="text-[10px] text-slate-400 uppercase tracking-widest -mt-1 font-semibold">Industrial Intelligence</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#about" class="hover:text-emerald-400 transition">Why Attend</a>
+        <a href="#agenda" class="hover:text-emerald-400 transition">Agenda</a>
+        <a href="#speakers" class="hover:text-emerald-400 transition">Speakers</a>
+        <a href="#calculator" class="hover:text-emerald-400 transition">ROI Calculator</a>
+        <a href="#who-should-attend" class="hover:text-emerald-400 transition">Target Audience</a>
+        <a href="#faq" class="hover:text-emerald-400 transition">FAQs</a>
+      </nav>
+
+      <!-- CTA -->
+      <div class="flex items-center gap-4">
+        <a href="#register" class="relative group px-5 py-2.5 rounded-xl font-semibold text-sm bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 hover:brightness-110 shadow-lg shadow-emerald-500/25 transition active:scale-95 flex items-center gap-2">
+          <span>Claim Free Pass</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-0.5 transition"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="relative pt-12 pb-20 lg:pt-16 lg:pb-28 overflow-hidden hero-glow grid-pattern">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <!-- Top badges -->
+      <div class="flex flex-wrap items-center gap-3 mb-6">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/40 text-emerald-400 text-xs font-semibold backdrop-blur-md">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 badge-pulse"></span>
+          GLOBAL EXECUTIVE BRIEFING
+        </div>
+        <div class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-900/90 border border-slate-700 text-slate-300 text-xs font-medium">
+          <i data-lucide="video" class="w-3.5 h-3.5 text-cyan-400"></i>
+          Interactive Virtual Broadcast + Live Q&A
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <!-- Left Column: Copy & Value Proposition -->
+        <div class="lg:col-span-7">
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold tracking-tight font-display leading-[1.15] mb-6">
+            From Factory Floor to <span class="text-gradient">Autonomous Plants:</span> Deploying AI That Actually Drives ROI
+          </h1>
+          
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed mb-8 max-w-2xl">
+            Join 850+ industrial leaders for an intensive masterclass on deploying <span class="text-white font-semibold">Predictive Maintenance</span>, <span class="text-white font-semibold">Computer Vision QA</span>, and <span class="text-white font-semibold">GenAI Copilots</span> that slash unplanned downtime by up to 40% and eliminate scrap in real-world plants.
+          </p>
+
+          <!-- Key Highlights Bullet Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-8">
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="p-1.5 rounded-lg bg-emerald-500/10 text-emerald-400 mt-0.5">
+                <i data-lucide="gauge" class="w-4 h-4"></i>
+              </div>
+              <div class="text-xs">
+                <strong class="text-slate-200 block font-semibold text-sm">Predictive Anomaly Detection</strong>
+                <span class="text-slate-400">Catch critical bearing & motor failures 14 days before failure.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="p-1.5 rounded-lg bg-cyan-500/10 text-cyan-400 mt-0.5">
+                <i data-lucide="scan" class="w-4 h-4"></i>
+              </div>
+              <div class="text-xs">
+                <strong class="text-slate-200 block font-semibold text-sm">Automated Vision Quality</strong>
+                <span class="text-slate-400">Sub-millimeter defect detection at line speeds of 2,400 parts/min.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="p-1.5 rounded-lg bg-purple-500/10 text-purple-400 mt-0.5">
+                <i data-lucide="bot" class="w-4 h-4"></i>
+              </div>
+              <div class="text-xs">
+                <strong class="text-slate-200 block font-semibold text-sm">Operator GenAI Copilots</strong>
+                <span class="text-slate-400">Instant multi-language SOP retrieval and shift-handover summaries.</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3 p-3 rounded-xl bg-slate-900/60 border border-slate-800">
+              <div class="p-1.5 rounded-lg bg-amber-500/10 text-amber-400 mt-0.5">
+                <i data-lucide="line-chart" class="w-4 h-4"></i>
+              </div>
+              <div class="text-xs">
+                <strong class="text-slate-200 block font-semibold text-sm">Proven 9-Month ROI Model</strong>
+                <span class="text-slate-400">Step-by-step brownfield integration playbook without line shutdown.</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Proof Avatar Stack -->
+          <div class="flex flex-wrap items-center gap-4 pt-2">
+            <div class="flex -space-x-2">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-slate-950 object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=face" alt="Attendee">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-slate-950 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="Attendee">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-slate-950 object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&h=100&fit=crop&crop=face" alt="Attendee">
+              <img class="inline-block h-10 w-10 rounded-full ring-2 ring-slate-950 object-cover" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face" alt="Attendee">
+              <div class="h-10 w-10 rounded-full bg-slate-800 ring-2 ring-slate-950 flex items-center justify-center text-xs font-bold text-emerald-400">
+                +850
+              </div>
+            </div>
+            <div class="text-xs text-slate-300">
+              <span class="font-bold text-white block text-sm">850+ Manufacturing Leaders Registered</span>
+              <span>Engineering & Ops teams from Ford, Siemens, Bosch, CAT & Honeywell</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Registration Card & Urgency Countdown -->
+        <div class="lg:col-span-5" id="register">
+          <div class="glass-card rounded-2xl p-6 sm:p-8 shadow-2xl relative border-emerald-500/30">
+            <!-- Glow Accent Corner -->
+            <div class="absolute -top-3 -right-3 px-3 py-1 rounded-full bg-emerald-500 text-slate-950 text-xs font-bold uppercase tracking-wider shadow-md">
+              Free Access
+            </div>
+
+            <!-- Countdown Timer Container -->
+            <div class="mb-6 pb-6 border-b border-slate-800">
+              <div class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2 flex items-center justify-between">
+                <span>Webinar Commences In:</span>
+                <span class="text-emerald-400 flex items-center gap-1">
+                  <i data-lucide="clock" class="w-3.5 h-3.5"></i> Live Broadcast
+                </span>
+              </div>
+              <div class="grid grid-cols-4 gap-2 text-center" id="countdown-timer">
+                <div class="bg-slate-900/90 rounded-xl p-2 border border-slate-800">
+                  <span class="block text-xl sm:text-2xl font-bold font-display text-emerald-400" id="days">17</span>
+                  <span class="text-[10px] text-slate-400 uppercase tracking-wider">Days</span>
+                </div>
+                <div class="bg-slate-900/90 rounded-xl p-2 border border-slate-800">
+                  <span class="block text-xl sm:text-2xl font-bold font-display text-emerald-400" id="hours">06</span>
+                  <span class="text-[10px] text-slate-400 uppercase tracking-wider">Hours</span>
+                </div>
+                <div class="bg-slate-900/90 rounded-xl p-2 border border-slate-800">
+                  <span class="block text-xl sm:text-2xl font-bold font-display text-emerald-400" id="minutes">45</span>
+                  <span class="text-[10px] text-slate-400 uppercase tracking-wider">Mins</span>
+                </div>
+                <div class="bg-slate-900/90 rounded-xl p-2 border border-slate-800">
+                  <span class="block text-xl sm:text-2xl font-bold font-display text-emerald-400" id="seconds">20</span>
+                  <span class="text-[10px] text-slate-400 uppercase tracking-wider">Secs</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Form Header -->
+            <div class="mb-5">
+              <h3 class="text-lg font-bold text-white font-display">Reserve Your Free VIP Seat</h3>
+              <p class="text-xs text-slate-400 mt-1">Includes live broadcast link, interactive Q&A access, and the complete 2027 Industrial AI Playbook kit.</p>
+            </div>
+
+            <!-- Registration Form -->
+            <form id="hero-registration-form" onsubmit="handleRegistration(event, 'hero')" class="space-y-3.5">
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Full Name *</label>
+                <div class="relative">
+                  <i data-lucide="user" class="w-4 h-4 text-slate-500 absolute left-3 top-3"></i>
+                  <input type="text" required placeholder="e.g. David Henderson" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition" id="hero-name">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Work Email *</label>
+                <div class="relative">
+                  <i data-lucide="mail" class="w-4 h-4 text-slate-500 absolute left-3 top-3"></i>
+                  <input type="email" required placeholder="david@company.com" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition" id="hero-email">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Company / Plant *</label>
+                  <input type="text" required placeholder="Apex Manufacturing" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition" id="hero-company">
+                </div>
+                <div>
+                  <label class="block text-xs font-semibold text-slate-300 mb-1">Job Title *</label>
+                  <select required class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white focus:outline-none focus:border-emerald-400 focus:ring-1 focus:ring-emerald-400 transition" id="hero-role">
+                    <option value="" disabled selected>Select Role</option>
+                    <option value="Plant Manager">Plant Manager</option>
+                    <option value="VP / Director of Operations">VP / Director of Operations</option>
+                    <option value="Reliability & Maintenance Lead">Reliability / Maintenance Lead</option>
+                    <option value="Quality Assurance Director">Quality Assurance Director</option>
+                    <option value="Digital Transformation / IT-OT">Digital Transformation / IT-OT</option>
+                    <option value="Manufacturing Engineer">Manufacturing Engineer</option>
+                    <option value="C-Level / Executive">C-Level / Executive</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Ticket Tier Toggle -->
+              <div class="pt-1">
+                <label class="block text-xs font-semibold text-slate-300 mb-1.5">Choose Pass Type:</label>
+                <div class="grid grid-cols-2 gap-2">
+                  <label class="cursor-pointer">
+                    <input type="radio" name="pass-type" value="Standard Free Pass" checked class="peer sr-only">
+                    <div class="p-2.5 rounded-xl border border-slate-700 peer-checked:border-emerald-400 peer-checked:bg-emerald-500/10 text-left transition">
+                      <span class="block text-xs font-bold text-white">General Pass</span>
+                      <span class="text-[10px] text-emerald-400 font-semibold">$0 (Included)</span>
+                    </div>
+                  </label>
+
+                  <label class="cursor-pointer">
+                    <input type="radio" name="pass-type" value="Executive VIP + Plant AI Audit" class="peer sr-only">
+                    <div class="p-2.5 rounded-xl border border-slate-700 peer-checked:border-cyan-400 peer-checked:bg-cyan-500/10 text-left transition">
+                      <span class="block text-xs font-bold text-white">VIP + 1-on-1 Audit</span>
+                      <span class="text-[10px] text-cyan-400 font-semibold">$0 (Sponsored)</span>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <button type="submit" class="w-full mt-2 py-3.5 px-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 hover:brightness-110 shadow-lg shadow-emerald-500/25 transition active:scale-[0.99] flex items-center justify-center gap-2">
+                <span>Confirm My Registration</span>
+                <i data-lucide="check-circle" class="w-4 h-4"></i>
+              </button>
+
+              <div class="flex items-center justify-center gap-4 text-[11px] text-slate-400 pt-1">
+                <span class="flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3 text-emerald-400"></i> Strict Privacy</span>
+                <span>&bull;</span>
+                <span class="flex items-center gap-1"><i data-lucide="check" class="w-3 h-3 text-emerald-400"></i> Instant Confirmation</span>
+                <span>&bull;</span>
+                <span class="flex items-center gap-1"><i data-lucide="download" class="w-3 h-3 text-emerald-400"></i> Calendar Sync</span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metric Proof Banner -->
+  <section class="border-y border-slate-800 bg-slate-900/50 py-10 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="p-4">
+          <div class="text-3xl sm:text-4xl font-extrabold font-display text-emerald-400 mb-1">38%</div>
+          <p class="text-xs sm:text-sm font-semibold text-white">Unplanned Downtime Reduction</p>
+          <span class="text-xs text-slate-400">Across 120+ brownfield implementations</span>
+        </div>
+        <div class="p-4 border-l border-slate-800">
+          <div class="text-3xl sm:text-4xl font-extrabold font-display text-cyan-400 mb-1">99.4%</div>
+          <p class="text-xs sm:text-sm font-semibold text-white">Defect Escape Prevention</p>
+          <span class="text-xs text-slate-400">Sub-surface & microscopic vision QA</span>
+        </div>
+        <div class="p-4 border-l-0 md:border-l border-slate-800">
+          <div class="text-3xl sm:text-4xl font-extrabold font-display text-emerald-400 mb-1">4.2x</div>
+          <p class="text-xs sm:text-sm font-semibold text-white">Average First-Year ROI</p>
+          <span class="text-xs text-slate-400">Documented payback under 9 months</span>
+        </div>
+        <div class="p-4 border-l border-slate-800">
+          <div class="text-3xl sm:text-4xl font-extrabold font-display text-purple-400 mb-1">&lt; 14 Days</div>
+          <p class="text-xs sm:text-sm font-semibold text-white">Rapid Edge Deployment</p>
+          <span class="text-xs text-slate-400">No factory shutdown required</span>
+        </div>
+      </div>
+
+      <!-- Trust Badges -->
+      <div class="mt-8 pt-8 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition duration-300">
+        <span class="text-xs uppercase tracking-widest text-slate-400 font-semibold">ATTENDEE REPRESENTATION FROM:</span>
+        <span class="font-display font-bold text-lg tracking-wider text-slate-300">SIEMENS</span>
+        <span class="font-display font-bold text-lg tracking-wider text-slate-300">BOSCH</span>
+        <span class="font-display font-bold text-lg tracking-wider text-slate-300">HONEYWELL</span>
+        <span class="font-display font-bold text-lg tracking-wider text-slate-300">CATERPILLAR</span>
+        <span class="font-display font-bold text-lg tracking-wider text-slate-300">BOEING</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive ROI & Downtime Calculator -->
+  <section id="calculator" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 border border-cyan-800/60 px-3 py-1 rounded-full">
+          INTERACTIVE SIMULATION
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mt-3 mb-4">
+          Estimate Your Plant's Annual Downtime Savings
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          See what an average 38% reduction in unplanned line stops and early anomaly detection would save your facility every year.
+        </p>
+      </div>
+
+      <div class="glass-card rounded-3xl p-6 sm:p-10 border-slate-800 shadow-2xl max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <!-- Controls -->
+          <div class="space-y-6">
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-semibold text-slate-200">Operating Production Lines</label>
+                <span class="text-sm font-bold font-mono text-emerald-400" id="lines-value">8 Lines</span>
+              </div>
+              <input type="range" id="lines-slider" min="1" max="40" value="8" step="1" 
+                     class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-400"
+                     oninput="updateSavingsCalculator()">
+              <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                <span>1 Line</span>
+                <span>20 Lines</span>
+                <span>40+ Lines</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-semibold text-slate-200">Average Downtime Cost ($ / Hour)</label>
+                <span class="text-sm font-bold font-mono text-cyan-400" id="cost-value">$12,000 / hr</span>
+              </div>
+              <input type="range" id="cost-slider" min="2000" max="60000" value="12000" step="1000" 
+                     class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-cyan-400"
+                     oninput="updateSavingsCalculator()">
+              <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                <span>$2,000/hr</span>
+                <span>$30,000/hr</span>
+                <span>$60,000/hr</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between items-center mb-2">
+                <label class="text-xs font-semibold text-slate-200">Historical Unplanned Hours / Line / Month</label>
+                <span class="text-sm font-bold font-mono text-purple-400" id="hours-value">14 Hours</span>
+              </div>
+              <input type="range" id="hours-slider" min="4" max="40" value="14" step="1" 
+                     class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-purple-400"
+                     oninput="updateSavingsCalculator()">
+              <div class="flex justify-between text-[10px] text-slate-500 mt-1">
+                <span>4 hrs</span>
+                <span>20 hrs</span>
+                <span>40 hrs</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Output Box -->
+          <div class="bg-gradient-to-br from-slate-900 to-slate-950 p-6 rounded-2xl border border-emerald-500/30 text-center relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 w-32 h-32 bg-emerald-500/10 rounded-full blur-2xl"></div>
+            
+            <span class="text-xs text-slate-400 uppercase tracking-wider font-semibold block mb-2">
+              Projected Annual Net Cost Recovery
+            </span>
+            <div class="text-4xl sm:text-5xl font-extrabold font-display text-emerald-400 mb-2" id="total-savings">
+              $6,128,640
+            </div>
+            <p class="text-xs text-slate-400 max-w-xs mx-auto mb-6">
+              Based on conservative 38% predictive recovery rate & 18% scrap reduction.
+            </p>
+
+            <div class="border-t border-slate-800 pt-4 grid grid-cols-2 gap-3 text-left">
+              <div>
+                <span class="text-[10px] text-slate-400 block">Downtime Hours Saved / Yr</span>
+                <span class="text-sm font-bold text-white" id="hours-saved">510 Hours</span>
+              </div>
+              <div>
+                <span class="text-[10px] text-slate-400 block">Est. Payback Timeline</span>
+                <span class="text-sm font-bold text-emerald-400">4.8 Months</span>
+              </div>
+            </div>
+
+            <a href="#register" class="mt-5 block w-full py-2.5 px-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-emerald-300 border border-emerald-500/30 transition">
+              Learn Implementation Roadmap at Webinar &rarr;
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Agenda Section -->
+  <section id="agenda" class="py-20 bg-slate-900/40 relative border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-3 py-1 rounded-full">
+          CURRICULUM BREAKDOWN
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mt-3 mb-4">
+          Masterclass Agenda & Technical Tracks
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          A zero-fluff, 2-hour executive session covering real architecture, live telemetry demonstrations, and hard operational lessons.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto space-y-4">
+        
+        <!-- Session 1 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-mono">
+                2:00 PM – 2:25 PM EST
+              </span>
+              <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">TRACK 01 &bull; KEYNOTE</span>
+            </div>
+            <span class="text-xs text-slate-400">Speaker: Dr. Marcus Vance</span>
+          </div>
+          <h3 class="text-lg font-bold text-white font-display mb-2">
+            The 2027 Industrial AI Blueprint: Edge AI, Sensor Fusion & OT/IT Convergence
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            How modern manufacturing is moving past brittle cloud latency to microsecond inference on edge gateways. Architecting an end-to-end telemetry pipeline from legacy PLC/SCADA controllers to secure inference clusters.
+          </p>
+          <div class="flex flex-wrap gap-2 text-[11px]">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Brownfield Connectivity</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">OPC-UA & MQTT Sparkplug</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Edge Gateway Topologies</span>
+          </div>
+        </div>
+
+        <!-- Session 2 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-lg text-xs font-bold bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 font-mono">
+                2:25 PM – 2:55 PM EST
+              </span>
+              <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">TRACK 02 &bull; CASE STUDY</span>
+            </div>
+            <span class="text-xs text-slate-400">Speaker: Elena Rostova</span>
+          </div>
+          <h3 class="text-lg font-bold text-white font-display mb-2">
+            Predictive Maintenance: Slashing Bearing, Gearbox & Spindle Failures
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            Step-by-step breakdown of how a Tier-1 automotive plant captured 94% of unexpected motor seizures. Real-time vibration Fourier analysis, thermal degradation curves, and dynamic Remaining Useful Life (RUL) modeling.
+          </p>
+          <div class="flex flex-wrap gap-2 text-[11px]">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Vibration FFT Analysis</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Remaining Useful Life (RUL)</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Automated Work-Order Generation</span>
+          </div>
+        </div>
+
+        <!-- Session 3 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-lg text-xs font-bold bg-purple-500/20 text-purple-400 border border-purple-500/30 font-mono">
+                2:55 PM – 3:25 PM EST
+              </span>
+              <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">TRACK 03 &bull; VISION SYSTEMS</span>
+            </div>
+            <span class="text-xs text-slate-400">Speaker: Sarah Jenkins</span>
+          </div>
+          <h3 class="text-lg font-bold text-white font-display mb-2">
+            Computer Vision QA: Zero-Defect Surface & Dimension Inspection at Speed
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            Replacing fatigue-prone manual eye inspections with high-speed neural vision models. Inspecting microscopic surface cracks, welding porosity, and fastener alignment at 2,000+ units per minute with sub-millimeter precision.
+          </p>
+          <div class="flex flex-wrap gap-2 text-[11px]">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">High-Speed Camera Synchronization</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Few-Shot Synthetic Defect Training</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">99.4% Escape Prevention</span>
+          </div>
+        </div>
+
+        <!-- Session 4 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-lg text-xs font-bold bg-amber-500/20 text-amber-400 border border-amber-500/30 font-mono">
+                3:25 PM – 3:50 PM EST
+              </span>
+              <span class="text-xs uppercase tracking-wider text-slate-400 font-semibold">TRACK 04 &bull; GENERATIVE AI</span>
+            </div>
+            <span class="text-xs text-slate-400">Speaker: Rajiv Mehta</span>
+          </div>
+          <h3 class="text-lg font-bold text-white font-display mb-2">
+            Plant-Floor Copilots: Grounded GenAI for Maintenance & Shift Handoffs
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            Giving shop-floor technicians an instant, voice-enabled AI technician that queries 10,000 pages of OEM equipment manuals, historical maintenance tickets, and blueprints in under 3 seconds in any language.
+          </p>
+          <div class="flex flex-wrap gap-2 text-[11px]">
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Voice-to-Work Order</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Multimodal Diagram Querying</span>
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Zero-Hallucination Grounding</span>
+          </div>
+        </div>
+
+        <!-- Session 5 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 border-emerald-500/30 bg-emerald-950/10 transition">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-3">
+            <div class="flex items-center gap-3">
+              <span class="px-3 py-1 rounded-lg text-xs font-bold bg-emerald-400 text-slate-950 font-mono">
+                3:50 PM – 4:15 PM EST
+              </span>
+              <span class="text-xs uppercase tracking-wider text-emerald-400 font-bold">TRACK 05 &bull; LIVE DEMO & Q&A</span>
+            </div>
+            <span class="text-xs text-emerald-300 font-semibold">Full Panel + Audience Interaction</span>
+          </div>
+          <h3 class="text-lg font-bold text-white font-display mb-2">
+            Live Architecture Walkthrough, ROI Calculator & Open Executive Q&A
+          </h3>
+          <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-4">
+            We will open the hood on a live production deployment, run real sensor data through the anomaly pipeline, and address audience questions on hardware selection, IT/OT security barriers, and budgeting.
+          </p>
+          <div class="flex flex-wrap gap-2 text-[11px]">
+            <span class="px-2.5 py-1 rounded-md bg-emerald-900/40 text-emerald-300 border border-emerald-800/60">Live Sensor Ingestion</span>
+            <span class="px-2.5 py-1 rounded-md bg-emerald-900/40 text-emerald-300 border border-emerald-800/60">Cybersecurity Compliance</span>
+            <span class="px-2.5 py-1 rounded-md bg-emerald-900/40 text-emerald-300 border border-emerald-800/60">Open Mic Q&A</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Deliverables & Kit Section -->
+  <section class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-purple-400 bg-purple-950/60 border border-purple-800/60 px-3 py-1 rounded-full">
+          ATTENDEE TAKEAWAYS
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mt-3 mb-4">
+          What You Take Home (Included Free)
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          Every verified attendee receives the complete Manvian Industrial AI Implementation Toolkit immediately after the session.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card rounded-2xl p-6 border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+            <i data-lucide="file-spreadsheet" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-base font-bold text-white mb-2 font-display">Industrial AI ROI & Budget Model</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Fully customizable financial spreadsheet used by Fortune 500 manufacturing leaders to calculate payback timelines, CapEx/OpEx breakdown, and executive justification.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+            <i data-lucide="layers" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-base font-bold text-white mb-2 font-display">Edge Architecture Reference Spec</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Hardware blueprints and gateway topology recommendations for deploying edge vision and vibration analysis without compromising plant OT cybersecurity firewalls.
+          </p>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4">
+            <i data-lucide="award" class="w-6 h-6"></i>
+          </div>
+          <h4 class="text-base font-bold text-white mb-2 font-display">Executive Certificate of Attendance</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">
+            Verifiable digital badge and continuing professional education credential validating 2 hours of advanced training in Industrial Artificial Intelligence & Smart Operations.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Speakers Section -->
+  <section id="speakers" class="py-20 bg-slate-900/40 relative border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-3 py-1 rounded-full">
+          EXPERT FACULTY
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mt-3 mb-4">
+          Learn From Engineers Who Built Smart Factories
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          No theorists or buzzword vendors. Our speakers have architected, deployed, and debugged AI on active lines running 24/7/365.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
+        <!-- Speaker 1 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800 text-center">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-2xl overflow-hidden ring-2 ring-emerald-500/40 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=300&h=300&fit=crop&crop=face" alt="Elena Rostova" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-base font-bold text-white font-display">Elena Rostova</h3>
+          <p class="text-xs text-emerald-400 font-semibold mb-2">Chief AI Architect, Manvian</p>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Pioneered edge vibration anomaly models for 30+ European industrial facilities. Former Lead IoT Architect at Siemens Energy.
+          </p>
+          <div class="flex items-center justify-center gap-2 pt-2 border-t border-slate-800 text-slate-400">
+            <span class="text-[11px] font-mono text-slate-300">Vibration & Acoustics</span>
+          </div>
+        </div>
+
+        <!-- Speaker 2 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800 text-center">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-2xl overflow-hidden ring-2 ring-cyan-500/40 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" alt="Dr. Marcus Vance" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-base font-bold text-white font-display">Dr. Marcus Vance</h3>
+          <p class="text-xs text-cyan-400 font-semibold mb-2">VP of Smart Manufacturing</p>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            18+ years leading powertrain automation & robotics. Former Gigafactory engineering director; MIT Mechanical Engineering Ph.D.
+          </p>
+          <div class="flex items-center justify-center gap-2 pt-2 border-t border-slate-800 text-slate-400">
+            <span class="text-[11px] font-mono text-slate-300">Edge & OT Convergence</span>
+          </div>
+        </div>
+
+        <!-- Speaker 3 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800 text-center">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-2xl overflow-hidden ring-2 ring-purple-500/40 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop&crop=face" alt="Sarah Jenkins" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-base font-bold text-white font-display">Sarah Jenkins</h3>
+          <p class="text-xs text-purple-400 font-semibold mb-2">Head of Vision QA Systems</p>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Specialist in high-speed optical inspection and synthetic defect generation for aerospace and precision casting lines.
+          </p>
+          <div class="flex items-center justify-center gap-2 pt-2 border-t border-slate-800 text-slate-400">
+            <span class="text-[11px] font-mono text-slate-300">Neural Computer Vision</span>
+          </div>
+        </div>
+
+        <!-- Speaker 4 -->
+        <div class="glass-card glass-card-hover rounded-2xl p-6 border-slate-800 text-center">
+          <div class="w-24 h-24 mx-auto mb-4 rounded-2xl overflow-hidden ring-2 ring-amber-500/40 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face" alt="Rajiv Mehta" class="w-full h-full object-cover">
+          </div>
+          <h3 class="text-base font-bold text-white font-display">Rajiv Mehta</h3>
+          <p class="text-xs text-amber-400 font-semibold mb-2">Director of Plant Intelligence</p>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">
+            Deployed industrial GenAI copilots across 14 assembly lines, cutting mean-time-to-repair (MTTR) by 42%.
+          </p>
+          <div class="flex items-center justify-center gap-2 pt-2 border-t border-slate-800 text-slate-400">
+            <span class="text-[11px] font-mono text-slate-300">GenAI & Maintenance SOPs</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Who Should Attend Section -->
+  <section id="who-should-attend" class="py-20 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-wider text-cyan-400 bg-cyan-950/60 border border-cyan-800/60 px-3 py-1 rounded-full">
+          TARGET AUDIENCE
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mt-3 mb-4">
+          Designed Specifically For Operations & Engineering Leaders
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          Whether you operate a discrete assembly plant or a continuous process facility, this curriculum directly addresses your operational constraints.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="text-emerald-400 font-bold text-xs uppercase tracking-wider mb-2">01 &bull; OPERATIONS</div>
+            <h4 class="text-base font-bold text-white mb-2">Plant & Operations Managers</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Targeting OEE gains, scrap minimization, and preventing multi-hour catastrophic line bottlenecks that blow up shipment targets.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-emerald-400 font-semibold flex items-center gap-1">
+            Focus: OEE & Line Throughput
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="text-cyan-400 font-bold text-xs uppercase tracking-wider mb-2">02 &bull; MAINTENANCE</div>
+            <h4 class="text-base font-bold text-white mb-2">Reliability & Maintenance Engineers</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Transitioning from reactive firefighting or calendar-based PM to condition-based automated work orders with precise root cause data.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-cyan-400 font-semibold flex items-center gap-1">
+            Focus: MTBF, MTTR & Critical Spares
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="text-purple-400 font-bold text-xs uppercase tracking-wider mb-2">03 &bull; QUALITY</div>
+            <h4 class="text-base font-bold text-white mb-2">Quality Assurance Directors</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Eliminating customer defect escapes and warranty recalls by inspecting 100% of manufactured units at full conveyor speed.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-purple-400 font-semibold flex items-center gap-1">
+            Focus: Zero-Defect Inspection
+          </div>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="text-amber-400 font-bold text-xs uppercase tracking-wider mb-2">04 &bull; TECHNOLOGY</div>
+            <h4 class="text-base font-bold text-white mb-2">CIOs, CDOs & IT/OT Leaders</h4>
+            <p class="text-xs text-slate-400 leading-relaxed">
+              Solving the classic IT/OT cybersecurity standoff, legacy PLC connectivity, and brownfield edge compute orchestration.
+            </p>
+          </div>
+          <div class="mt-4 pt-4 border-t border-slate-800 text-xs text-amber-400 font-semibold flex items-center gap-1">
+            Focus: OT Security & Edge Topology
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials & Social Proof -->
+  <section class="py-20 bg-slate-900/30 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mb-4">
+          Trusted by Manufacturing Pioneers
+        </h2>
+        <p class="text-sm sm:text-base text-slate-300">
+          Here is what leaders who implemented Manvian Industrial AI frameworks achieved.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="glass-card rounded-2xl p-6 border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 gap-1 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 italic mb-4 leading-relaxed">
+              "We caught a cracked main spindle bearing on our stamping press 11 days before catastrophic failure. That single alert saved our plant over $480,000 in emergency shutdown and die repair."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-emerald-500/20 text-emerald-400 font-bold flex items-center justify-center text-xs">
+              JS
+            </div>
+            <div>
+              <span class="text-xs font-bold text-white block">James Sutherland</span>
+              <span class="text-[11px] text-slate-400">Director of Reliability, Precision Automotive</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 gap-1 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 italic mb-4 leading-relaxed">
+              "The computer vision inspection module paid for itself within 75 days. Our defect escape rate dropped from 2.1% to virtually zero, saving our customer contracts."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-cyan-500/20 text-cyan-400 font-bold flex items-center justify-center text-xs">
+              KL
+            </div>
+            <div>
+              <span class="text-xs font-bold text-white block">Karen Lindqvist</span>
+              <span class="text-[11px] text-slate-400">VP of Quality, Nordic Extrusions</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card rounded-2xl p-6 border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="flex text-amber-400 gap-1 mb-3">
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
+            </div>
+            <p class="text-xs sm:text-sm text-slate-300 italic mb-4 leading-relaxed">
+              "Most AI webinars are high-level fluff. Manvian's engineering walk-through gave us the exact edge gateway hardware specs and MQTT pipeline we implemented."
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800 flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-purple-500/20 text-purple-400 font-bold flex items-center justify-center text-xs">
+              MR
+            </div>
+            <div>
+              <span class="text-xs font-bold text-white block">Mateo Rossi</span>
+              <span class="text-[11px] text-slate-400">Head of Digital Manufacturing, Global HVAC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Accordion Section -->
+  <section id="faq" class="py-20 relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-14">
+        <span class="text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-950/60 border border-emerald-800/60 px-3 py-1 rounded-full">
+          COMMON QUESTIONS
+        </span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mt-3 mb-4">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-sm text-slate-300">
+          Everything you need to know about the masterclass, credentials, and requirements.
+        </p>
+      </div>
+
+      <div class="space-y-4" id="faq-container">
+        
+        <!-- FAQ 1 -->
+        <div class="glass-card rounded-2xl border-slate-800 overflow-hidden">
+          <button onclick="toggleFaq(1)" class="w-full text-left p-5 flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-emerald-400 transition">
+            <span>What if I cannot attend the live broadcast at 2:00 PM EST?</span>
+            <i data-lucide="chevron-down" id="faq-icon-1" class="w-5 h-5 text-slate-400 transition transform"></i>
+          </button>
+          <div id="faq-content-1" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+            All registered attendees will receive the full HD on-demand recording, presentation slide deck, and downloadable toolkit within 3 hours after the session concludes. However, we strongly encourage attending live to participate in the real-time Q&A and architecture assessment.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="glass-card rounded-2xl border-slate-800 overflow-hidden">
+          <button onclick="toggleFaq(2)" class="w-full text-left p-5 flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-emerald-400 transition">
+            <span>Is this masterclass too technical or too high-level?</span>
+            <i data-lucide="chevron-down" id="faq-icon-2" class="w-5 h-5 text-slate-400 transition transform"></i>
+          </button>
+          <div id="faq-content-2" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+            The session is engineered for operational and technical decision-makers. We bridge both business ROI and engineering realities: financial models and payback timelines are paired with concrete edge gateway architectures, vibration FFT algorithms, and synthetic defect models.
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="glass-card rounded-2xl border-slate-800 overflow-hidden">
+          <button onclick="toggleFaq(3)" class="w-full text-left p-5 flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-emerald-400 transition">
+            <span>Can multiple team members from our company register?</span>
+            <i data-lucide="chevron-down" id="faq-icon-3" class="w-5 h-5 text-slate-400 transition transform"></i>
+          </button>
+          <div id="faq-content-3" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+            Yes! In fact, we recommend attending with both an Operations lead and an IT/OT representative so your team can align on brownfield connectivity, network security, and project prioritization immediately.
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="glass-card rounded-2xl border-slate-800 overflow-hidden">
+          <button onclick="toggleFaq(4)" class="w-full text-left p-5 flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-emerald-400 transition">
+            <span>What equipment or software do I need to attend?</span>
+            <i data-lucide="chevron-down" id="faq-icon-4" class="w-5 h-5 text-slate-400 transition transform"></i>
+          </button>
+          <div id="faq-content-4" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+            None. The masterclass is streamed via high-definition web broadcast accessible on any modern desktop or mobile browser. No software downloads or extensions are required.
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="glass-card rounded-2xl border-slate-800 overflow-hidden">
+          <button onclick="toggleFaq(5)" class="w-full text-left p-5 flex items-center justify-between text-sm sm:text-base font-bold text-white hover:text-emerald-400 transition">
+            <span>What is included in the 1-on-1 Plant AI Readiness Audit?</span>
+            <i data-lucide="chevron-down" id="faq-icon-5" class="w-5 h-5 text-slate-400 transition transform"></i>
+          </button>
+          <div id="faq-content-5" class="hidden px-5 pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-slate-800/60 pt-3">
+            Attendees who select the VIP Pass receive a complimentary 45-minute architectural review with a Manvian Senior Industrial Solutions Architect to review your equipment specs, sensor maturity, and brownfield integration feasibility.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Bar -->
+  <section class="py-16 bg-gradient-to-r from-emerald-950 via-slate-900 to-cyan-950 border-t border-emerald-500/30 text-center relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 relative z-10">
+      <h2 class="text-2xl sm:text-4xl font-extrabold font-display text-white mb-4">
+        Ready to Turn Unplanned Downtime into Predicted Uptime?
+      </h2>
+      <p class="text-slate-300 text-sm sm:text-base mb-8 max-w-2xl mx-auto">
+        Join hundreds of plant directors and manufacturing engineers on Thursday, December 10, 2026. Secure your complimentary pass today before seats fill up.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#register" class="w-full sm:w-auto px-8 py-4 rounded-xl font-bold text-sm bg-gradient-to-r from-emerald-400 to-cyan-400 text-slate-950 hover:brightness-110 shadow-xl shadow-emerald-500/30 transition flex items-center justify-center gap-2">
+          <span>Claim Your Free Masterclass Pass</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-darkBg border-t border-slate-900 py-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-lg bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
+            <i data-lucide="cpu" class="w-4 h-4"></i>
+          </div>
+          <div>
+            <span class="font-bold text-white text-sm font-display tracking-wide">MANVIAN INDUSTRIAL AI</span>
+            <p class="text-[10px] text-slate-500">Autonomous Edge Systems & Industrial Intelligence</p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-6 text-slate-400">
+          <a href="#about" class="hover:text-white transition">Overview</a>
+          <a href="#agenda" class="hover:text-white transition">Agenda</a>
+          <a href="#speakers" class="hover:text-white transition">Speakers</a>
+          <a href="#calculator" class="hover:text-white transition">Calculator</a>
+          <a href="#faq" class="hover:text-white transition">Support</a>
+        </div>
+
+        <div class="text-slate-500 text-[11px]">
+          &copy; 2026 Manvian Technologies Inc. All rights reserved. Candidate Practical Assessment.
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Confirmation Modal / Digital Ticket -->
+  <div id="confirmation-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="glass-card rounded-3xl max-w-lg w-full p-6 sm:p-8 border-emerald-500/40 shadow-2xl relative text-center">
+      
+      <!-- Close button -->
+      <button onclick="closeConfirmationModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white transition p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="w-16 h-16 rounded-2xl bg-emerald-500/20 text-emerald-400 mx-auto flex items-center justify-center mb-4 ring-2 ring-emerald-500/40">
+        <i data-lucide="check" class="w-8 h-8"></i>
+      </div>
+
+      <span class="text-xs uppercase tracking-widest text-emerald-400 font-bold">REGISTRATION CONFIRMED</span>
+      <h3 class="text-xl sm:text-2xl font-bold font-display text-white mt-1 mb-2">You're Confirmed for the Masterclass!</h3>
+      <p class="text-xs text-slate-300 mb-6">
+        A confirmation email with your direct broadcast link has been prepared. Your digital VIP access pass is below:
+      </p>
+
+      <!-- Digital Boarding Pass -->
+      <div class="bg-slate-900 rounded-2xl p-5 border border-emerald-500/30 text-left relative overflow-hidden mb-6">
+        <div class="flex justify-between items-start border-b border-slate-800 pb-3 mb-3">
+          <div>
+            <span class="text-[10px] text-slate-400 uppercase tracking-wider block">Attendee Name</span>
+            <span class="text-sm font-bold text-white" id="modal-attendee-name">David Henderson</span>
+          </div>
+          <div class="text-right">
+            <span class="text-[10px] text-emerald-400 uppercase tracking-wider font-bold block" id="modal-pass-tier">VIP EXECUTIVE PASS</span>
+            <span class="text-[10px] text-slate-500 font-mono" id="modal-ticket-id">MANV-2026-8849</span>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 text-xs mb-3">
+          <div>
+            <span class="text-[10px] text-slate-400 block">Date & Time</span>
+            <span class="font-semibold text-slate-200">Dec 10, 2026 &bull; 2:00 PM EST</span>
+          </div>
+          <div>
+            <span class="text-[10px] text-slate-400 block">Location</span>
+            <span class="font-semibold text-slate-200">Live Virtual Broadcast</span>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-between pt-3 border-t border-slate-800 text-[11px]">
+          <div class="flex items-center gap-1.5 text-emerald-400">
+            <i data-lucide="shield-check" class="w-4 h-4"></i> Verified Pass
+          </div>
+          <div class="text-slate-400 font-mono text-[10px]">
+            Includes Q&A + Toolkit
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <button onclick="downloadCalendarICS()" class="w-full py-3 px-4 rounded-xl font-semibold text-xs bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 transition flex items-center justify-center gap-2">
+          <i data-lucide="calendar" class="w-4 h-4 text-emerald-400"></i>
+          <span>Add to Calendar (.ICS)</span>
+        </button>
+
+        <a id="google-cal-btn" href="#" target="_blank" class="w-full py-3 px-4 rounded-xl font-semibold text-xs bg-gradient-to-r from-emerald-500 to-cyan-500 text-slate-950 hover:brightness-110 transition flex items-center justify-center gap-2">
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+          <span>Google Calendar</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Interactive JavaScript Logic -->
+  <script>
+    // Initialize Lucide Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+      updateSavingsCalculator();
+      startCountdown();
+    });
+
+    // Countdown Timer Logic
+    function startCountdown() {
+      // Target: Dec 10, 2026, 2:00 PM EST (19:00 UTC)
+      const targetDate = new Date('2026-12-10T19:00:00Z').getTime();
+
+      function update() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+          const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+          document.getElementById('days').innerText = String(days).padStart(2, '0');
+          document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+          document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+          document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        } else {
+          document.getElementById('countdown-timer').innerHTML = '<div class="col-span-4 text-emerald-400 font-bold py-2">BROADCAST IS LIVE NOW!</div>';
+        }
+      }
+
+      update();
+      setInterval(update, 1000);
+    }
+
+    // Savings Calculator Logic
+    function updateSavingsCalculator() {
+      const lines = parseInt(document.getElementById('lines-slider').value);
+      const costPerHour = parseInt(document.getElementById('cost-slider').value);
+      const hoursPerMonth = parseInt(document.getElementById('hours-slider').value);
+
+      document.getElementById('lines-value').innerText = lines + (lines === 1 ? ' Line' : ' Lines');
+      document.getElementById('cost-value').innerText = '$' + costPerHour.toLocaleString() + ' / hr';
+      document.getElementById('hours-value').innerText = hoursPerMonth + ' Hours';
+
+      // Total unplanned downtime hours per year across all lines
+      const totalHoursPerYear = lines * hoursPerMonth * 12;
+      // Conservative predictive maintenance reduction: 38%
+      const reductionRate = 0.38;
+      const hoursSaved = Math.round(totalHoursPerYear * reductionRate);
+      const totalGrossSavings = hoursSaved * costPerHour;
+
+      document.getElementById('total-savings').innerText = '$' + totalGrossSavings.toLocaleString();
+      document.getElementById('hours-saved').innerText = hoursSaved.toLocaleString() + ' Hours';
+    }
+
+    // FAQ Toggle
+    function toggleFaq(id) {
+      const content = document.getElementById('faq-content-' + id);
+      const icon = document.getElementById('faq-icon-1');
+      const allContents = document.querySelectorAll('[id^="faq-content-"]');
+      const allIcons = document.querySelectorAll('[id^="faq-icon-"]');
+
+      const isHidden = content.classList.contains('hidden');
+
+      // Close all
+      allContents.forEach(c => c.classList.add('hidden'));
+      allIcons.forEach(i => i.classList.remove('rotate-180'));
+
+      // Toggle current
+      if (isHidden) {
+        content.classList.remove('hidden');
+        document.getElementById('faq-icon-' + id).classList.add('rotate-180');
+      }
+    }
+
+    // Form Submission & Confirmation Modal
+    let registeredAttendee = {
+      name: '',
+      email: '',
+      company: '',
+      role: '',
+      passType: '',
+      ticketId: ''
+    };
+
+    function handleRegistration(e, source) {
+      e.preventDefault();
+      
+      const name = document.getElementById('hero-name').value;
+      const email = document.getElementById('hero-email').value;
+      const company = document.getElementById('hero-company').value;
+      const role = document.getElementById('hero-role').value;
+      const selectedPass = document.querySelector('input[name="pass-type"]:checked').value;
+      const ticketId = 'MANV-' + Math.floor(1000 + Math.random() * 9000);
+
+      registeredAttendee = { name, email, company, role, passType: selectedPass, ticketId };
+
+      // Update Modal
+      document.getElementById('modal-attendee-name').innerText = name + ' (' + (company || 'Executive') + ')';
+      document.getElementById('modal-pass-tier').innerText = selectedPass.toUpperCase();
+      document.getElementById('modal-ticket-id').innerText = ticketId;
+
+      // Update Google Calendar Link
+      const gcalTitle = encodeURIComponent("AI for Manufacturing Masterclass (Manvian)");
+      const gcalDetails = encodeURIComponent("You're registered for the live masterclass: From Factory Floor to Autonomous Plants. Link & kit materials in confirmation email. Ticket ID: " + ticketId);
+      const gcalLocation = encodeURIComponent("Live Virtual Broadcast (Manvian AI)");
+      const gcalDates = "20261210T190000Z/20261210T211500Z";
+      const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${gcalTitle}&dates=${gcalDates}&details=${gcalDetails}&location=${gcalLocation}`;
+      document.getElementById('google-cal-btn').href = gcalUrl;
+
+      // Show Modal
+      const modal = document.getElementById('confirmation-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeConfirmationModal() {
+      const modal = document.getElementById('confirmation-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Download .ICS File for Outlook / Apple Calendar
+    function downloadCalendarICS() {
+      const icsContent = 
+`BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Manvian AI//Manufacturing Masterclass//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+SUMMARY:AI for Manufacturing Masterclass | Manvian
+DESCRIPTION:Exclusive Virtual Masterclass: Slashing Unplanned Downtime & Defect Rates with Predictive AI, Computer Vision, and Autonomous Operations.\\n\\nTicket ID: ${registeredAttendee.ticketId || 'MANV-2026'}\\nAttendee: ${registeredAttendee.name || 'Delegate'}
+LOCATION:Live Virtual Broadcast
+DTSTART:20261210T190000Z
+DTEND:20261210T211500Z
+STATUS:CONFIRMED
+END:VEVENT
+END:VCALENDAR`;
+
+      const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute('download', 'manvian-manufacturing-ai-webinar.ics');
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+  </script>
+</body>
+</html>
